@@ -45,4 +45,8 @@ fi
 echo "Creating checksums of current state of $DIR now."
 find $DIR -type f -print0 | xargs -0 sha1sum >$DIR$INTEGRITY/$THISRUN/$CHECKSUMS 2>>$DIR$INTEGRITY/$THISRUN/$ERRORS
 echo $THISRUN >$LASTSTAMP
+
+cp $0 $DIR$INTEGRITY/integrity-tool.sh 2>/dev/null || true
+chmod 755 $DIR$INTEGRITY/integrity-tool.sh 2>/dev/null || true
+
 echo "Done."
